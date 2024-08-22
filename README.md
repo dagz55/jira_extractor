@@ -1,3 +1,6 @@
+# jira_extractor
+Automate Jira Data Extraction and Excel Workbook Updates with Python
+
 # Jira Extractor
 
 This project automates the extraction of Jira data (epics, stories, and bugs) and exports it to an Excel file.
