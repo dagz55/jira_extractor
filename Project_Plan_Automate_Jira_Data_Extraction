@@ -1,0 +1,123 @@
+Project Plan: Extracting Jira Stories into MS Excel using Python
+
+Project Overview
+
+The purpose of this project is to automate the extraction of Jira stories from a Jira account and export them into an MS Excel file. This automation will help in efficient tracking, reporting, and analysis of Jira stories.
+
+Project Requirements
+
+	1.	Python Environment:
+	•	Python 3.8+
+	•	Virtual environment (optional but recommended)
+	2.	Libraries and Dependencies:
+	•	jira: To interact with the Jira API.
+	•	pandas: For data manipulation and exporting data to Excel.
+	•	openpyxl or xlsxwriter: To support Excel file creation with pandas.
+	•	requests: For making HTTP requests if needed (optional depending on the Jira 	library usage).
+	•	dotenv: For managing environment variables securely (optional but recommended).
+	•	logging: For logging the process and errors.
+These can be installed using pip:
+```
+pip install jira pandas openpyxl python-dotenv logging
+```
+	3.	Jira Account and API Access:
+	•	Jira API token (can be generated in your Jira account).
+	•	Jira domain URL.
+	•	Jira project key or specific filters for stories.
+	•	User credentials or OAuth credentials (preferably stored securely in environment variables).
+	4.	MS Excel Template (Optional):
+	•	A pre-defined Excel template can be used to format the Jira stories or generate a new Excel sheet dynamically.
+
+
+Project Plan
+
+	1.	Repository Setup
+	•	Create a new GitHub repository.
+	•	Initialize with a README file detailing the purpose and usage of the project.
+	•	Include a .gitignore file to exclude unnecessary files (e.g., __pycache__, .env).
+	2.	Directory Structure
+	•	/src: Contains the Python scripts.
+	•	/config: Contains configuration files, such as .env.
+	•	/docs: Documentation related to the project.
+	•	/tests: Test scripts for validating the code.
+	•	/output: Directory where the generated Excel files will be saved.
+	•	README.md: Detailed instructions on setting up and running the project.
+──────────────────────────────────────────────────────────────────────────────────────
+Directory structure:
+├── src/
+│   ├── main.py
+│   ├── jira_extractor.py
+│   ├── excel_exporter.py
+├── config/
+│   ├── .env
+├── docs/
+├── tests/
+├── output/
+├── README.md
+├── .gitignore
+├── requirements.txt
+
+/src
+    ├── static/
+    ├── templates/
+    │   ├── index.html
+    ├── app.py
+    ├── jira_extractor.py
+    ├── excel_exporter.py
+/config
+    └── .env
+/output
+    └── (Generated Excel files will be stored here)
+──────────────────────────────────────────────────────────────────────────────────────
+
+    3.	Environment Setup
+	•	Create a virtual environment and install dependencies.
+	•	Store Jira credentials and API tokens securely in a .env file:
+	```
+	JIRA_URL="https://your-domain.atlassian.net"
+	JIRA_USER="your-email@example.com"
+	JIRA_API_TOKEN="your-api-token"
+	```
+	4.	Script Development
+	•	jira_extractor.py:
+	•	Functionality to authenticate with Jira using API tokens.
+	•	Extract Jira stories based on specific filters (e.g., project key, sprint, assignee).
+	•	Parse the response and store relevant details (e.g., Story ID, Title, Status, Assignee, etc.).
+	•	excel_exporter.py:
+	•	Functionality to take the extracted Jira stories and export them into an Excel file.
+	•	Use pandas to format the data and handle Excel-specific formatting (e.g., column width, bold headers).
+	•	Save the file to the /output directory.
+	•	main.py:
+	•	Integrate the jira_extractor and excel_exporter modules.
+	•	Log the entire process for troubleshooting.
+	•	Provide options for running different filters or exporting options via command-line arguments.
+	5.	Logging and Error Handling
+	•	Implement comprehensive logging to capture successful operations and errors.
+	•	Handle common errors, such as connection issues or incorrect API tokens.
+	6.	Testing
+	•	Develop unit tests for the individual components (e.g., jira_extractor, excel_exporter).
+	•	Test the integration by running the full pipeline on a subset of Jira data.
+	•	Validate the format and correctness of the generated Excel files.
+	7.	Documentation
+	•	README.md: Detailed instructions on setting up the environment, configuring Jira credentials, and running the script.
+	•	Code Comments: Add comments within the code to explain key functions and logic.
+	•	Additional Docs: Create any other necessary documentation in the /docs folder (e.g., troubleshooting, additional configuration).
+	8.	Deployment
+	•	Provide instructions in the README for deploying the project (e.g., running the script via cron jobs for regular exports).
+	•	Consider Dockerizing the project for easy deployment across different environments.
+	9.	Version Control
+	•	Regularly commit changes with descriptive messages.
+	•	Use branches for different features or bug fixes, with the main branch reserved for stable code.
+	10.	Future Enhancements
+	•	Add support for exporting additional Jira fields or custom fields.
+	•	Implement more advanced filtering options.
+	•	Support for exporting data in other formats (e.g., CSV, JSON).
+	•	Create a web interface for non-technical users to trigger the export.
+
+Deliverables
+
+	•	Source Code: Python scripts for extracting Jira stories and exporting to Excel.
+	•	Documentation: Instructions and documentation in the GitHub repository.
+	•	Excel Output: Sample Excel file with Jira stories, saved in the /output directory.
+
+This project plan should be compatible with GitHub Projects, allowing for tasks to be tracked, issues to be logged, and progress to be monitored in a collaborative environment.
